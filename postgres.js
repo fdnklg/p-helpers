@@ -1,10 +1,18 @@
 const { Pool, Client } = require('pg') // install pg via npm
 
+// keep this discrete information hidden in config file e.g.
+const db = {
+    dbhost: "url_to_db_here",
+    dbname: "db_name",
+    dbuser: "user_name_here",
+    dbpassword: "password here"
+},
+
 const pool = new Pool({
-    user: config.db.dbuser,
-    host: config.db.dbhost,
-    database: config.db.dbname,
-    password: config.db.dbpassword,
+    user: db.dbuser,
+    host: db.dbhost,
+    database: db.dbname,
+    password: db.dbpassword,
     port: 5432,
 })
 
